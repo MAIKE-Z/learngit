@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定时器制作图片自动切换</title>
+<style>
+ul{ margin:0; padding:0;}
+li{ list-style:none;}
+img{ border:none; vertical-align:top;}
+body{ background:#ccc;}
+#pic{ width:300px; height:400px; margin:40px auto; background:#fff; position:relative;}
+#pic img{ width:300px; height:400px;}
+#pic ul{ width:40px; position:absolute; top:0; right:-50px;}
+#pic ul li{ width:40px; height:40px; margin-bottom:4px; background:#666;}
+#pic ul .active{ background:#fc3;}
+#pic span, #pic p{ width:300px; height:40px; color:#fff; text-align:center; line-height:40px; background:#000; position:absolute; left:0;}
+#pic span{ top:0;}
+#pic p{ bottom:0; margin:0;}
+</style>
+
+<script>
+window.onload = function(){
+	
+	var oPic = document.getElementById('pic');
+	var oImg = oPic.getElementsByTagName('img')[0];
+	var oSpan = oPic.getElementsByTagName('span')[0];
+	var oP = oPic.getElementsByTagName('p')[0];
+	var oUl = oPic.getElementsByTagName('ul')[0];
+	var aLi = oPic.getElementsByTagName('li');
+	
+	var arrUrl = ['banner1.png', 'banner2.png', 'banner3.png'];
+	var arrText = ['第一张图片', '第二张图片', '第三张图片'];
+	
+	var num = 0;
+	
+	///////////////////////////////////////
+	var timer = null;
+	function autoPlay(){
+	timer = setInterval(function(){
+		num ++;
+		num%=arrText.length;
+		fnTab();
+		}, 3000);
+	}
+	autoPlay();
+	//setTimeout(autoPlay, 1000);
+	oPic.onmouseover = function(){
+		clearInterval(timer);
+		};
+	oPic.onmouseout = autoPlay;
+	//question 1 autoplay为什么没有（）
+	//answer （）里的是一串字符串类型的js代码，这是set和clearInterval，还有set和clearTimeout的特性，只需要函数名就行。
+
+	//question 2 为什么要用aLi[i].index保存i
+	///////////////////////////////////////
+	
+	for( var i=0; i<arrUrl.length; i++){
+		
+		oUl.innerHTML +='<li></li>';
+		}
+	//初始化
+	function fnTab(){
+		
+		oImg.src = arrUrl[num];
+		oSpan.innerHTML = num + 1 + '/' + arrUrl.length;
+		oP.innerHTML = arrText[num];
+		
+		for(var i=0; i<aLi.length; i++){
+			
+			aLi[i].className = '';
+			}
+		aLi[num].className = 'active'
+	}
+	fnTab();
+    for(var i=0; i<aLi.length; i++){
+		
+		aLi[i].index = i;
+		aLi[i].onclick = function(){
+			
+			num = this.index;
+			fnTab();
+			}
+		}
+	};
+</script>
+</head>
+ 
+<body>
+<div id="pic">
+	<img src="" />
+    <span>数量正在加载中.......</span>
+    <p>文字说明正在加载中......</p>
+	<ul>
+    </ul>
+</div>
+ 
+</body>
+</html>

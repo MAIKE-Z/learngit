@@ -5,19 +5,46 @@
     <meta charset="utf-8">
     <link href="styles/style.css" rel="stylesheet">
 
-	  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
-    <style>tbody {
-  font-size: 90%;
-  font-style: italic;
-}
-
-tfoot {
-  font-weight: bold;
-}</style>
 
     <title>我的测试页面</title>
   </head>
+  <style>
+  header {
+    display: flex;
+  }  
+  </style>
+
+
+
+
   <body>
+   <header>
+      <div class="title">My Website</div>
+      <nav>
+        <ul>
+          <li>
+            <a href="">Link 1</a>
+          </li>
+          <li>
+            <a href="">Link 2</a>
+          </li>
+          <li>
+            <a href="">Link 3</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+  
+    <nav>
+  <ul class="links-list">
+    <li><a href="">Link one</a></li>
+    <li><a href="">Link two</a></li>
+    <li><a href="">Link three</a></li>
+  </ul>
+</nav>   
+
     <h1>title</h1>
     <img src="images/figure1.png" alt="我的测试页面" title="111"> 
     <p>paragraph</p>
@@ -70,6 +97,8 @@ tfoot {
       <input type="password" id="pwd" name="password">
     </p>
 </section>
+
+
 <fieldset>
   <legend>What is your favorite meal?</legend>
   <ul>
@@ -87,9 +116,15 @@ tfoot {
     </li>
   </ul>
   <meter min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
-
 </fieldset>
 </form>
+
+ 
+    
+<!--
+注释
+注释
+-->
 <form>
   <h1>to: Mozilla</h1>
 
@@ -113,7 +148,12 @@ tfoot {
   </div>
 </form>
 <span><input type="checkbox"></span>
-
+<select name="1" id="11" >
+  <option value="1">111</option>
+  <option value="1" selected="">222</option>
+  <option value="1">111</option>
+  <option value="1">111</option>
+</select>
 
     <script type="text/javascript" src="scripts/main.js" defer=""></script>
   </body>

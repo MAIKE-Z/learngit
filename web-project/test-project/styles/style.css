@@ -3,6 +3,7 @@ html{
   font-size: 10px; 
   /* Google fonts 输出的 CSS */
   font-family: 'Metal Mania', cursive;
+  
 }
 
 h1{
@@ -11,8 +12,10 @@ h1{
 }
 
 
+
 p, li{
 	font-size: 16px;
+
 	line-height: 2;
 	letter-spacing: 1px;
 }
@@ -34,10 +37,15 @@ h1 {
 img {
   display: block;
   margin: 0 auto;
+  
 }
 
 
 
 li{
   list-style-type: none
+}
+
+nav ul li{
+  display: inline-block;
 }

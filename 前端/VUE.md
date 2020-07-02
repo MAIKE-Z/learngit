@@ -64,3 +64,81 @@ npm run dev 或 npm run serve 启动项目
 * 计算属性缓存VS方法
 计算属性(computed)只有在相关响应式依赖发生改变时才会重新求值。
 方法(methods)在每次触发重新渲染时都会再次执行。
+* 侦听器 watch，适用于当数据变化时需要执行异步或者开销较大的操作。
+## Class和style的绑定
+* `<div v-bind:class="{ active: isActive }"></div>`  active这个class是否存在取决于isActive的true or false。这2个名字随意。动态绑定可以和普通的class attribute共存，也可以多个动态绑定
+* 数组语法`<div v-bind:class="[activeClass, errorClass]"></div>`
+`<div v-bind:class="[isActive ? activeClass : '']"></div>`==`<div v-bind:class="{ active: isActive }"></div>`
+## V-if和V-show
+```
+<h1 v-if="awesome">Vue is awesome!</h1>
+<h1 v-else>Oh no 😢</h1>
+```
+v-if只有在指令表达式为truthy值时被渲染，如果部位truthy，不渲染
+v-show任何时候都会渲染，只是display会变成none
+一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。
+v-for和v-if一起使用时，v-for有更高的优先级
+## 列表渲染
+```
+<div v-for="item in items" v-bind:key="item.id">
+  <!-- 内容 -->
+</div>
+```
+## 事件处理
+v-on=“xxx”缩写@xxx
+特殊变量@event 访问原始DOM事件
+修饰符
+* .stop
+* .prevent
+* .capture
+* .self
+* .once
+* .passive
+### .exact修饰符
+```
+<!-- 即使 Alt 或 Shift 被一同按下时也会触发 -->
+<button v-on:click.ctrl="onClick">A</button>
+
+<!-- 有且只有 Ctrl 被按下的时候才触发 -->
+<button v-on:click.ctrl.exact="onCtrlClick">A</button>
+
+<!-- 没有任何系统修饰符被按下的时候才触发 -->
+<button v-on:click.exact="onClick">A</button>
+```
+## 绑定表单
+```
+<input v-model="message" placeholder="edit me">
+<p>Message is: {{ message }}</p>
+```
+* 双向绑定，在input中输入了值更改了message属性的值，那么p标签中message的值也会改变。
+```
+<!-- 当选中时，`picked` 为字符串 "a" -->
+<input type="radio" v-model="picked" value="a">
+
+<!-- `toggle` 为 true 或 false -->
+<input type="checkbox" v-model="toggle">
+
+<!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+<select v-model="selected">
+  <option value="abc">ABC</option>
+</select>
+```
++ 通过更改value值来改变selected值，如果要绑定到Vue实例上，要用v-bind
+修饰符
+* v-model.lazy 在“change”时而非“input”时更新
+* .number 自动将用户的输入值转为数值类型
+* .trim 自动过滤用户输入的首尾空白字符
+
+
+
+
+
+
+
+
+
+
+
+
+
+

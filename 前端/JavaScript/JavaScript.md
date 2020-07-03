@@ -40,7 +40,7 @@ xxx.onClick=funtion(){
 2. 闭包使得函数中的变量被保存在内存中，所以内存消耗很大，不能滥用闭包
 ```
 　　function f1(){
-　　　　var n=999;
+　　　　let n=999;
 　　　　function f2(){
 　　　　　　return n;
 　　　　}//闭包，使得可以在函数外部访问n

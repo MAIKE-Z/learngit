@@ -128,14 +128,39 @@ v-on=“xxx”缩写@xxx
 * v-model.lazy 在“change”时而非“input”时更新
 * .number 自动将用户的输入值转为数值类型
 * .trim 自动过滤用户输入的首尾空白字符
-
-
-
-
-
-
-
-
+## 组件
+```
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
+```
+然后在html中用<button-counter></button-counter>标签就可以
+* 组件的data必须是一个函数，否则就会影响到所有组件实例
+props，自定义的attributes
+```
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+```
+* 组件必须有一个根元素
+```
+<button v-on:click="$emit('enlarge-text', 0.1)">
+  Enlarge text
+</button>
+```
+```
+<blog-post
+  ...
+  v-on:enlarge-text="postFontSize += $event"
+></blog-post>
+```
+* 子组件通过$emit方法传入事件名称来触发一个事件。在这里，enlarge-text方法定意思在父组件中。$event方法可以帮助父组件访问到被抛出的值（若处理事件的是一个方法，那么这个值会被当做第一个参数传入方法）
 
 
 

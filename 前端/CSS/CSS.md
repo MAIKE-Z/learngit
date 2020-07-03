@@ -74,5 +74,10 @@ display:table+margin:0 auto
 ` grid: display: grid, grid-template-columns: 1fr 1fr` 
 ## 自我验证
 [html、css基础考察](https://www.cnblogs.com/songjum/p/5466862.html)
-
+## 两边固定中间自适应
+* float
+* absolute position
+* flex
+* 负margin-----margin top, margin left会向上左移动，right bottom会覆盖右下。文档流只能是后面的流向前面的，即文档流只能向左或向上流动，不能向下或向右移动。
+* display: table
 #学习/前端#

@@ -49,3 +49,7 @@ xxx.onClick=funtion(){
    var result=f1();
    alert(result());
 ```
+
+
+
+#学习/前端#

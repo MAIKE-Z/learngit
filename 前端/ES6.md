@@ -127,3 +127,6 @@ ES6继承
 ## export default和export的使用方式
 * 导入模块：使用import模块名称from模块标识符（import表示路径）
 * 暴露成员方式：使用export default和export向外暴露成员（exfault default只允许向外暴露一次，且import时可以任意指定名字）
+
+
+#学习/前端#

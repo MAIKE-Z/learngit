@@ -58,6 +58,7 @@ grid-gap: 10px;
 text-align: center
 ### 定宽块状元素
 margin: 0 auto
+margin-left:50%  position: relative; left: 负宽度的一半
 ### 不定宽块状元素
 ```
 display:flex
